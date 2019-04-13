@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 
+from flask_pymongo import PyMongo
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -20,6 +21,12 @@ app = Flask(__name__)
 
 ####### TODO  ↓ ↓ ↓ ↓ ↓ ↓ 
 ##app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/OOOOOOOOOOOOO.sqlite"
+
+# Use flask_pymongo to set up mongo connection
+app.config["MONGO_URI"] = "mongodb://localhost:27017/pets"
+# app.config["MONGO_URI"] = "mongodb+srv://k9sam:1234@petfinder-qbryn.mongodb.net/test"
+
+mongo = PyMongo(app)
 
 db = SQLAlchemy(app)
 
