@@ -65,14 +65,17 @@ def findCat():
 
 
 
-@app.route("/findPet")
+@app.route("/adoptadog")
 def findPet():
-    return render_template("findPet.html")
-    
+    return render_template("findadog.html")
 
-@app.route("/overview")
+app.route("/adoptacat")
+def findPet():
+    return render_template("findacat.html")
+    
+@app.route("/about")
 def overview():
-    return render_template("overview.html")
+    return render_template("about.html")
 
 @app.route("/maps")
 def maps():
