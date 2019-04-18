@@ -1,5 +1,6 @@
 function drawPlot(cost_data){
-    var json_cost = JSON.parse(cost_data)
+    //anual costs
+    var json_annual_cost = JSON.parse(cost_data[0])
     var x_axis = ["Small dog", "Medium dog", "Large dog", "Cat"];
     
     var y_food = [];
@@ -13,7 +14,7 @@ function drawPlot(cost_data){
     var y_total = [];
 
     //data cleaning
-    json_cost.forEach(function(cost){
+    json_annual_cost.forEach(function(cost){
         if (cost["Items"] == "Food") {
             y_food.push(cost["Sm_Dog"])
             y_food.push(cost["Med_Dog"])
@@ -135,7 +136,7 @@ function drawPlot(cost_data){
     
       var layout = {barmode: 'stack'};
       
-    Plotly.newPlot('stacked_bar', data, layout);
+    Plotly.newPlot('stacked_bar_annual_cost', data, layout);
 
 
     // Dropdown bar chart
@@ -143,7 +144,7 @@ function drawPlot(cost_data){
         {
             x: x_axis,
             y: y_food,
-            name: 'cost for food'
+            name: 'cost for food',
             type: 'bar'
         },
         {
@@ -195,11 +196,16 @@ function drawPlot(cost_data){
             type: 'bar'
         }]; 
         
-        Plotly.newPlot('dropdown_bar', data2, {
+        Plotly.newPlot('dropdown_bar_annual_cost', data2, {
         updatemenus: [{
             y: 1,
             yanchor: 'top',
-            buttons: [{
+            buttons: [
+            {
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,false, false, false,false, true]],
+                label: 'total'
+            },{
                 method: 'restyle',
                 args: ['visible', [true, false, false, false,false, false, false,false, false]],
                 label: 'food'
@@ -231,18 +237,250 @@ function drawPlot(cost_data){
                 method: 'restyle',
                 args: ['visible', [false, false, false, false,false, false, false,true, false]],
                 label: 'groom'
-            }, {
-                method: 'restyle',
-                args: ['visible', [false, false, false, false,false, false, false,false, true]],
-                label: 'total'
             }]
         }],
     });
     
 
+    //capital cost
+    var json_capital_cost = JSON.parse(cost_data[1])
+
+    var y_carrier = [];
+    var y_crate = [];
+    var y_leash = [];
+    var y_neuter = [];
+    var y_initialMedical = [];
+    var y_litterBox = [];
+    var y_scratchingPost = [];
+    var y_training = [];
+    var y_total2 = [];
 
 
+    // data cleaning for capital cost
+    json_capital_cost.forEach(function(cost){
+        if (cost["Items"] == "Carrier bag") {
+            y_carrier.push(cost["Sm_Dog"])
+            y_carrier.push(cost["Med_Dog"])
+            y_carrier.push(cost["Lg_Dog"])
+            y_carrier.push(cost["Cat"])
 
+        } else if (cost["Items"] == "Crate") {
+            y_crate.push(cost["Sm_Dog"])
+            y_crate.push(cost["Med_Dog"])
+            y_crate.push(cost["Lg_Dog"])
+            y_crate.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Collar/Leash") {
+            y_leash.push(cost["Sm_Dog"])
+            y_leash.push(cost["Med_Dog"])
+            y_leash.push(cost["Lg_Dog"])
+            y_leash.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Spay/neuter") {
+            y_neuter.push(cost["Sm_Dog"])
+            y_neuter.push(cost["Med_Dog"])
+            y_neuter.push(cost["Lg_Dog"])
+            y_neuter.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Other initial Medical") {
+            y_initialMedical.push(cost["Sm_Dog"])
+            y_initialMedical.push(cost["Med_Dog"])
+            y_initialMedical.push(cost["Lg_Dog"])
+            y_initialMedical.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Litter Box") {
+            y_litterBox.push(cost["Sm_Dog"])
+            y_litterBox.push(cost["Med_Dog"])
+            y_litterBox.push(cost["Lg_Dog"])
+            y_litterBox.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Scratching Post") {
+            y_scratchingPost.push(cost["Sm_Dog"])
+            y_scratchingPost.push(cost["Med_Dog"])
+            y_scratchingPost.push(cost["Lg_Dog"])
+            y_scratchingPost.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Training class") {
+            y_training.push(cost["Sm_Dog"])
+            y_training.push(cost["Med_Dog"])
+            y_training.push(cost["Lg_Dog"])
+            y_training.push(cost["Cat"])
+
+        } else if (cost["Items"] == "Capital Total") {
+            y_total2.push(cost["Sm_Dog"])
+            y_total2.push(cost["Med_Dog"])
+            y_total2.push(cost["Lg_Dog"])
+            y_total2.push(cost["Cat"])
+
+        } else {
+
+        }
+
+    })
+
+    // Stacked bar chart
+    var carrier = {
+        x: x_axis,
+        y: y_carrier,
+        name: 'cost for carrier',
+        type: 'bar'
+      };
     
+    var crate = {
+      x: x_axis,
+      y: y_crate,
+      name: 'cost for crate',
+      type: 'bar'
+    };
+
+    var leash = {
+        x: x_axis,
+        y: y_leash,
+        name: 'cost for leash',
+        type: 'bar'
+      };
+
+      var neuter = {
+        x: x_axis,
+        y: y_neuter,
+        name: 'cost for neuter',
+        type: 'bar'
+      };
+
+      var initialMedical = {
+        x: x_axis,
+        y: y_initialMedical,
+        name: 'cost for Initial Medical',
+        type: 'bar'
+      };
+
+      var litterBox = {
+        x: x_axis,
+        y: y_litterBox,
+        name: 'cost for litter box',
+        type: 'bar'
+      };
+
+      var scratchingPost = {
+        x: x_axis,
+        y: y_scratchingPost,
+        name: 'cost for scratching post',
+        type: 'bar'
+      };
+
+      var training = {
+        x: x_axis,
+        y: y_training,
+        name: 'cost for training',
+        type: 'bar'
+      };
+
+      var data3 = [carrier, crate, leash, neuter, initialMedical, litterBox, scratchingPost, training];
+    
+      var layout = {barmode: 'stack'};
+      
+    Plotly.newPlot('stacked_bar_capital_cost', data3, layout);
+
+    // Dropdown bar chart for capital cost
+    var data4 = [
+        {
+            x: x_axis,
+            y: y_carrier,
+            name: 'cost for carrier',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_crate,
+            name: 'cost for crate',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_leash,
+            name: 'cost for leash',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_neuter,
+            name: 'cost for neuter',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_initialMedical,
+            name: 'cost for Initial Medical',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_litterBox,
+            name: 'cost for litter box',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_scratchingPost,
+            name: 'cost for scratching post',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_training,
+            name: 'cost for training',
+            type: 'bar'
+        },
+        {
+            x: x_axis,
+            y: y_total2,
+            name: 'cost for total capital costs',
+            type: 'bar'
+        }]; 
+        
+        Plotly.newPlot('dropdown_bar_capital_cost', data4, {
+        updatemenus: [{
+            y: 1,
+            yanchor: 'top',
+            buttons: [{
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,false, false, false,false, true]],
+                label: 'total'
+            }, {
+                method: 'restyle',
+                args: ['visible', [true, false, false, false,false, false, false,false, false]],
+                label: 'Carrier bag'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, true, false, false,false, false, false,false, false]],
+                label: 'Crate'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, true, false,false, false, false,false, false]],
+                label: 'Collar/Leash'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, false, true,false, false, false,false, false]],
+                label: 'Spay/neuter'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,true, false, false,false, false]],
+                label: 'Other initial Medical'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,false, true, false,false, false]],
+                label: 'Litter Box'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,false, false, true,false, false]],
+                label: 'Scratching Post'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, false, false,false, false, false,true, false]],
+                label: 'Training class'
+            }]
+        }],
+    });
+   
 }
 

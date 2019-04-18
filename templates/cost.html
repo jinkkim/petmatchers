@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Find your pet</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -20,8 +21,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/about">DATA</a>
-                <a class="dropdown-item" href="/maps">MAPS</a>
+                <a class="dropdown-item" href="/aboutdogs">DOGS</a>
+                <a class="dropdown-item" href="/aboutcats">CATS</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -44,8 +45,12 @@
       
   <!-- UPDATE contents here -->
   <div class="container">
-    <div id="stacked_bar"></div>
-    <div id="dropdown_bar"></div>
+    <h1>Annual Cost</h1>
+    <div id="stacked_bar_annual_cost"></div>
+    <div id="dropdown_bar_annual_cost"></div>
+    <h1>Capital Cost</h1>
+    <div id="stacked_bar_capital_cost"></div>
+    <div id="dropdown_bar_capital_cost"></div>
   </div>
 
 
