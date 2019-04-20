@@ -115,38 +115,20 @@ def about_dog():
 
     df_dogData = pd.DataFrame(list(db_dogData.find()))
 
-     # dog statistics for chart (plotly)
-    #breed_info = df_dogData.groupby("breed")["_id"].count().sort_values(ascending=False)
-    #breed_names = list(breed_info[0:10].keys())
-    #breed_count = list(breed_info[0:10])
-
-    #age_info = df_dogData.groupby("age")["_id"].count()
-    #age_names = list(age_info.keys())
-    #age_count = list(age_info)
-
-    #size_info = df_dogData.groupby("size")["_id"].count()
-    #size_names = list(size_info.keys())
-    #size_count = list(size_info)
-
-    #dog_statistics = [breed_names, breed_count, age_names, age_count, size_names, size_count]
-
-
-
-
-    # dog statistics for chart (Google chart)
-    breed_info = df_dogData.groupby("breed")["_id"].count().sort_values(ascending=False)[0:10]
-    dog_statistics_breed = [['breed', 'Number']] + [[k, int(v)] for k,v in breed_info.items()]
+     # dog statistics for chart
+    breed_info = df_dogData.groupby("breed")["_id"].count().sort_values(ascending=False)
+    breed_names = list(breed_info[0:10].keys())
+    breed_count = list(breed_info[0:10])
 
     age_info = df_dogData.groupby("age")["_id"].count()
-    dog_statistics_age = [['age', 'Number']] + [[k, int(v)] for k,v in age_info.items()]
+    age_names = list(age_info.keys())
+    age_count = list(age_info)
 
     size_info = df_dogData.groupby("size")["_id"].count()
-    dog_statistics_size = [['size', 'Number']] + [[k, int(v)] for k,v in size_info.items()]
+    size_names = list(size_info.keys())
+    size_count = list(size_info)
 
-    color_info = df_dogData.groupby("color")["_id"].count()
-    dog_statistics_color = [['color', 'Number']] + [[k, int(v)] for k,v in color_info.items()]
-
-    dog_statistics = [dog_statistics_breed, dog_statistics_age, dog_statistics_size, dog_statistics_color]
+    dog_statistics = [breed_names, breed_count, age_names, age_count, size_names, size_count]
 
 
     # data for maps
@@ -169,36 +151,20 @@ def about_cat():
 
     df_catData = pd.DataFrame(list(db_catData.find()))
     
-    # cat statistics for graphsv (for Plotly)
-    #breed_info = df_catData.groupby("breed")["_id"].count().sort_values(ascending=False)
-    #breed_names = list(breed_info[0:10].keys())
-    #breed_count = list(breed_info[0:10])
-
-    #age_info = df_catData.groupby("age")["_id"].count()
-    #age_names = list(age_info.keys())
-    #age_count = list(age_info)
-
-    #size_info = df_catData.groupby("size")["_id"].count()
-    #size_names = list(size_info.keys())
-    #size_count = list(size_info)
-
-    #cat_statistics = [breed_names, breed_count, age_names, age_count, size_names, size_count]
-
-
-    # cat statistics for chart (Google chart)
-    breed_info = df_catData.groupby("breed")["_id"].count().sort_values(ascending=False)[0:10]
-    cat_statistics_breed = [['breed', 'Number']] + [[k, int(v)] for k,v in breed_info.items()]
+    # cat statistics for graphs
+    breed_info = df_catData.groupby("breed")["_id"].count().sort_values(ascending=False)
+    breed_names = list(breed_info[0:10].keys())
+    breed_count = list(breed_info[0:10])
 
     age_info = df_catData.groupby("age")["_id"].count()
-    cat_statistics_age = [['age', 'Number']] + [[k, int(v)] for k,v in age_info.items()]
+    age_names = list(age_info.keys())
+    age_count = list(age_info)
 
     size_info = df_catData.groupby("size")["_id"].count()
-    cat_statistics_size = [['size', 'Number']] + [[k, int(v)] for k,v in size_info.items()]
+    size_names = list(size_info.keys())
+    size_count = list(size_info)
 
-    color_info = df_catData.groupby("color")["_id"].count()
-    cat_statistics_color = [['color', 'Number']] + [[k, int(v)] for k,v in color_info.items()]
-
-    cat_statistics = [cat_statistics_breed, cat_statistics_age, cat_statistics_size, cat_statistics_color]
+    cat_statistics = [breed_names, breed_count, age_names, age_count, size_names, size_count]
 
 
     # cat data for maps

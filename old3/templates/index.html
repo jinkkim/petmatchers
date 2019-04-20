@@ -7,30 +7,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Find your pet</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <!--<link rel="stylesheet" href="../static/css/style.css">-->
-  <style>
-      @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-    </style>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">PETMATCHERS</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/aboutdogs">DOGS</a>
-                <a class="dropdown-item" href="/aboutcats">CATS</a>
-              </div>
-            </li>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="/about">ABOUT</a>
+              </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FIND YOUR MATCH</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -49,22 +38,18 @@
         </div>
       </nav>
   <div class="container">
-      
-    <div class="m-4"><br><br><br>
+    <div class="m-4">
       <img src="../static/images/front.gif" alt="" height="504" width="886">
     </div>
     <div class="m-4">
-      <p>Animal adoption is a big decision for a family. Our goal is to place pets with loving families. There are many adoptable animals in the world and people can find animal data online. Petfinder API provides hundreds of thousands of pets ready for adoption and over ten thousand animal welfare organization.
+      <p>Animal adoption is a big decision for a family. There are many adoptable animals in the world and people can find animal data online. We would like to provide selective available animal data with Petfinder API.  People can find a match based on their preference such as breed, age, gender, color, temperament, location and visualize current available animals by category. We will analyze and provide the pet care costs and related expenditure after adoption to help them make a decision.
       </p>
-      <p>We like you to find adoptable pets based on the following criteria that match your preference, such as breed, size, gender, age, and color. Our search engine will provide you with your selection complete with animal data and photo (if provided). We will also analyze and provide the pet care costs consist of capital and annual cost to help you make a decision.</p>
     </div>
     <div class="m-4 d-flex justify-content-around">
       <button type="button" class="btn btn-dark" onclick="window.location.href = '/adoptadog'">Adopt a Dog</button>
       <button type="button" class="btn btn-dark" onclick="window.location.href = '/adoptacat'">Adopt a Cat</button>
     </div>
   </div>
-
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

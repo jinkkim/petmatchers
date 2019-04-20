@@ -1,7 +1,68 @@
-function drawMap(dog_population){
+function drawPlot(dog_statistics){
+
+    var data = [
+        {
+        values: dog_statistics[1],
+        labels: dog_statistics[0],
+        domain: {column: 0},
+        name: 'breed',
+        hole: .4,
+        type: 'pie'
+        },
+        {
+        values: dog_statistics[3],
+        labels: dog_statistics[2],
+        domain: {column: 1},
+        name: 'age',
+        hole: .4,
+        type: 'pie'
+        },
+        {
+        values: dog_statistics[5],
+        labels: dog_statistics[4],
+        domain: {column: 2},
+        name: 'size',
+        hole: .4,
+        type: 'pie'
+        }]
+
+    var layout = {
+        title: 'Statistics for dogs',
+        annotations: [
+            {
+              font: {size: 18},
+              showarrow: false,
+              text: 'Breed',
+              x: 0.12,
+              y: 0.5
+            },
+            {
+              font: {size: 18},
+              showarrow: false,
+              text: 'Age',
+              x: 0.5,
+              y: 0.5
+            },
+            {
+                font: {size: 18},
+                showarrow: false,
+                text: 'Size',
+                x: 0.88,
+                y: 0.5
+              }
+        ],
+        height: 400,
+        width: 1000,
+        showlegend: false,
+        grid: {rows: 1, columns: 3}
+
+    }
+    Plotly.newPlot('pie_dog', data, layout); 
 
     //create map
-    //reference  : https://leafletjs.com/examples/choropleth/    
+    //reference  : https://leafletjs.com/examples/choropleth/
+
+    
 
     function getColor(d) {
       return d > 1000 ? '#800026' :
@@ -25,9 +86,9 @@ function drawMap(dog_population){
       };
   }
 
-    var myMap = L.map("map_dog", {
+    var myMap = L.map("map", {
       center: [40.13, -94.93],
-      zoom: 4
+      zoom: 5
     });
 
     L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -39,7 +100,7 @@ function drawMap(dog_population){
 
     //correct populaton in goejson to dog population
     statesData.features.forEach(function(feature){
-      feature.properties.density = dog_population[feature.properties.name]
+      feature.properties.density = dog_statistics[6][feature.properties.name]
     })
 
     var geojson = L.geoJson(statesData, {style: style}).addTo(myMap);

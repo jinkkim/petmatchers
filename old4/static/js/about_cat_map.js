@@ -1,15 +1,16 @@
-function drawMap(dog_population){
+function drawMap(cat_population){
 
     //create map
-    //reference  : https://leafletjs.com/examples/choropleth/    
+    //reference  : https://leafletjs.com/examples/choropleth/
+
 
     function getColor(d) {
-      return d > 1000 ? '#800026' :
-             d > 500  ? '#BD0026' :
-             d > 300  ? '#E31A1C' :
-             d > 100  ? '#FC4E2A' :
-             d > 50   ? '#FD8D3C' :
-             d > 20   ? '#FEB24C' :
+      return d > 800 ? '#800026' :
+             d > 600  ? '#BD0026' :
+             d > 400  ? '#E31A1C' :
+             d > 200  ? '#FC4E2A' :
+             d > 100   ? '#FD8D3C' :
+             d > 50   ? '#FEB24C' :
              d > 10   ? '#FED976' :
                         '#FFEDA0';
     }
@@ -25,9 +26,9 @@ function drawMap(dog_population){
       };
   }
 
-    var myMap = L.map("map_dog", {
+    var myMap = L.map("map_cat", {
       center: [40.13, -94.93],
-      zoom: 4
+      zoom: 5
     });
 
     L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -39,7 +40,7 @@ function drawMap(dog_population){
 
     //correct populaton in goejson to dog population
     statesData.features.forEach(function(feature){
-      feature.properties.density = dog_population[feature.properties.name]
+      feature.properties.density = cat_population[feature.properties.name]
     })
 
     var geojson = L.geoJson(statesData, {style: style}).addTo(myMap);
@@ -53,7 +54,7 @@ function drawMap(dog_population){
 
     legend.onAdd = function (map) {
       var div = L.DomUtil.create('div', 'info legend'),
-          grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+          grades = [0, 10, 50, 100, 200, 400, 600, 800],
           labels = [];
 
       // loop through our density intervals and generate a label with a colored square for each interval

@@ -2,22 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find your pet</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!--<link rel="stylesheet" href="../static/css/style.css">-->
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-      </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Find your pet</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-  
+
 <body>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -49,66 +42,70 @@
         </div>
       </nav>
 
-      <br><br><br>
+
   <!-- UPDATE contents here -->
   <div class="mt-4 d-flex justify-content-center">
-    <h1 id={{face}}>{{face}}</h1>
+    <h1>🐶</h1>
   </div>
   
   <div class="mt-3 d-flex justify-content-center">
     <div class="bd-example">
       <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" id="breed-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Breed</button>
-        <div id="breed-selector" class="dropdown-menu scrollable-menu">
-            {% for breed in list_breeds %}
-            <a class="dropdown-item" id={{breed}} data-value={{breed}}>{{breed}}</a>
-            {% endfor %}
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Breed</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Breed1</a>
+          <a class="dropdown-item" href="#">Breed2</a>
+          <a class="dropdown-item" href="#">Breed3</a>
+          <a class="dropdown-item" href="#">Breed4</a>
         </div>
       </div><!-- /btn-group -->
-
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" id="size-button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-        <div id="size-selector" class="dropdown-menu">
-            {% for size in list_sizes %}
-            <a class="dropdown-item" id={{size}}>{{size}}</a>
-            {% endfor %}
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Small</a>
+          <a class="dropdown-item" href="#">Medium</a>
+          <a class="dropdown-item" href="#">Large</a>
+          <a class="dropdown-item" href="#">X-Large</a>
         </div>
       </div><!-- /btn-group -->
-
       <div class="btn-group">
-        <button type="button" class="btn btn-success dropdown-toggle" id="gender-button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gender</button>
-        <div id="gender-selector" class="dropdown-menu">
-            {% for gender in list_genders %}
-            <a class="dropdown-item" id={{gender}}>{{gender}}</a>
-            {% endfor %}
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gender</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Female</a>
+          <a class="dropdown-item" href="#">Male</a>
         </div>
       </div><!-- /btn-group -->
-
       <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" id="age-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Age</button>
-        <div id="age-selector" class="dropdown-menu">
-            {% for age in list_ages %}
-            <a class="dropdown-item" id={{age}}>{{age}}</a>
-            {% endfor %}
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Age</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Baby</a>
+          <a class="dropdown-item" href="#">Young</a>
+          <a class="dropdown-item" href="#">Adult</a>
+          <a class="dropdown-item" href="#">Senior</a>
         </div>
       </div><!-- /btn-group -->
-
       <div class="btn-group">
-        <button type="button" class="btn btn-warning dropdown-toggle" id="color-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Color</button>
-        <div id="color-selector" class="dropdown-menu">
-            {% for color in list_colors %}
-            <a class="dropdown-item" id={{color}}>{{color}}</a>
-            {% endfor %}
+        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Good with</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Dogs</a>
+          <a class="dropdown-item" href="#">Cats</a>
+          <a class="dropdown-item" href="#">Kids</a>
         </div>
       </div><!-- /btn-group -->
-
-      <button type="button" class="btn btn-danger btn-lg" id="search">Search</button>
-
+      <div class="btn-group"></div>
+      <button type="button" class="btn btn-danger btn-lg">Search</button>
       <div class="mb-4"></div>
+      <!--  <button type="button" class="btn btn-danger" aria-haspopup="true" aria-expanded="false">Search</button>
+       <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+       </div> -->
+      </div><!-- /btn-group -->
     </div>
-    
   </div>
-
 
   <div class="container">
     <div class="row">
@@ -134,11 +131,10 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/adoptapet.js') }}"></script>
+
 </body>
 
 </html>

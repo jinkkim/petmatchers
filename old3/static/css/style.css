@@ -14,10 +14,7 @@ li
 }
 
 /* set map, body, and html to 100% of the screen size */
-#map_dog {
-  height: 600px;
-}
-#map_cat {
+#map {
   height: 600px;
 }
 
@@ -32,16 +29,3 @@ li
   margin-right: 8px;
   opacity: 0.7;
 }
-
-.scrollable-menu {
-  height: auto;
-  max-height: 400px;
-  overflow-x: hidden;
-}
-
-
-
-body{
-  font-family: 'Roboto Slab',serif;
-}  
-

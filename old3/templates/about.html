@@ -6,24 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Find your pet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <!--<link rel="stylesheet" href="../static/css/style.css">-->
-  <style>
-      @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-    </style>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">PETMATCHERS</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -48,27 +44,31 @@
           </ul>
         </div>
       </nav>
+  
+  <!-- UPDATE contents here -->
   <div class="container">
-      
-    <div class="m-4"><br><br><br>
-      <img src="../static/images/front.gif" alt="" height="504" width="886">
-    </div>
     <div class="m-4">
-      <p>Animal adoption is a big decision for a family. Our goal is to place pets with loving families. There are many adoptable animals in the world and people can find animal data online. Petfinder API provides hundreds of thousands of pets ready for adoption and over ten thousand animal welfare organization.
-      </p>
-      <p>We like you to find adoptable pets based on the following criteria that match your preference, such as breed, size, gender, age, and color. Our search engine will provide you with your selection complete with animal data and photo (if provided). We will also analyze and provide the pet care costs consist of capital and annual cost to help you make a decision.</p>
+      <p>Many animal adopters say they decide to adopt a dog or a cat because they just fell in love with them at first sight or they made an eye contact with the animal.  
+        Adopting an animal from an animal shelter is great but sadly many of them return to the shelter again. 
+        We want potential adopters have general ideas about available animals from 10,000+ shelters in north America and the cost of own an animal and want them to make informed decision on animal adoption. </p>
+      <br>
+      <p>Factors should be considered: animal breed, coat color, gender, age, house-trained, vaccinated, size, spayed/neutered, location, good with other dogs/cats, good with kids </p>
     </div>
-    <div class="m-4 d-flex justify-content-around">
-      <button type="button" class="btn btn-dark" onclick="window.location.href = '/adoptadog'">Adopt a Dog</button>
-      <button type="button" class="btn btn-dark" onclick="window.location.href = '/adoptacat'">Adopt a Cat</button>
-    </div>
+    <div id="pie_dog"></div>
+    <div id="map"></div>
+
+      
   </div>
 
-
-
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/us-states.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/about.js') }}"></script>
+  <script type="text/javascript">myPlot = drawPlot({{dog_statistics|tojson}})</script>
 
 </body>
 
