@@ -2,4 +2,4 @@
 
 ## Background
 
-![PetMatchers](petmatchers.gif)
+![PetMatchers](petmatchers.GIF)
